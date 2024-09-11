@@ -7033,7 +7033,7 @@ nk_strtod(const char *str, char **endptr)
     }
     number = value * neg;
     if (endptr)
-        *endptr = p;
+        *endptr = (char *)p;
     return number;
 }
 #endif
