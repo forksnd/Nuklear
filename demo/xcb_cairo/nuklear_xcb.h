@@ -238,13 +238,12 @@ NK_API void nk_xcb_free(struct nk_xcb_context *xcb_ctx)
     free(xcb_ctx);
 }
 
-static const xcb_client_message_event_t EMPTY_CLIENT_MESSAGE;
-
 NK_API int nk_xcb_handle_event(struct nk_xcb_context *xcb_ctx, struct nk_context *nk_ctx)
 {
     int events = 0;
     xcb_generic_event_t *event;
     static int insert_toggle = 0;
+    static const xcb_client_message_event_t EMPTY_CLIENT_MESSAGE;
 
 #ifdef NK_XCB_MIN_FRAME_TIME
     struct timespec tp;
